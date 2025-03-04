@@ -9,6 +9,7 @@ VICTORIES = {
 }
 
 
+# Here choosing rock, paper or scissors
 def get_user_selection(actions):
     choices = [f"{actions[action]}[{action}]" for action in actions]
     choices_str = ", ".join(choices)
@@ -17,12 +18,14 @@ def get_user_selection(actions):
     return action
 
 
+# Random choose
 def get_computer_selection(actions):
     selection = random.randint(0, len(actions) - 1)
     action = actions[selection]
     return action
 
 
+# Result
 def get_determine_winner(victories, user_action, computer_action):
     defeats = victories[user_action]
     if user_action == computer_action:
@@ -50,6 +53,6 @@ if __name__ == "__main__":
             print(f"Invalid selection. Enter a value in range {range_str}")
             continue
 
-        play_again = input("Play again? (y/n): ")
-        if play_again.lower() != "y":
+        play_again = input("Play again? (yes/no): ")
+        if play_again.lower() != "yes":
             break
